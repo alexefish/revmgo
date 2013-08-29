@@ -19,8 +19,8 @@ func AppInit() {
 	// Read configuration.
 	var found bool
 	if Dial, found = revel.Config.String("revmgo.dial"); !found {
-		// Default to 'localhost'
-		Dial = "localhost"
+		// Default to 'MONGOHQ_URL'
+		Dial = os.Getenv("MONGOHQ_URL")
 	}
 	if Method, found = revel.Config.String("db.spec"); !found {
 		Method = "clone"
