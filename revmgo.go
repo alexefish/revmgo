@@ -37,6 +37,7 @@ func setDuplMethod() {
 func AppInit() {
 	var err error
 	// Read configuration.
+	var found bool
 	if Dial, found = revel.Config.String("revmgo.dial"); !found {
  		// Default to 'MONGOHQ_URL'
  		Dial = os.Getenv("MONGOHQ_URL")
